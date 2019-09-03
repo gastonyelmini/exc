@@ -21,7 +21,7 @@ router.get("/misc", async (req, res) => {
   }
 
   return res.send(
-    "https://google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png"
+    "https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_150x54dp.png"
   );
 });
 
