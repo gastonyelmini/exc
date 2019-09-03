@@ -4,6 +4,8 @@ const app = express();
 
 const misc = require("./routes/api/misc");
 
+require("dotenv").config();
+
 require("request-debug")(request, function(type, data, r) {
   console.log(
     "**************************** NEW REQUEST ****************************"
@@ -15,4 +17,6 @@ require("request-debug")(request, function(type, data, r) {
 
 app.use("/api", misc);
 
-app.listen(5000, () => console.log("listening on port 5000"));
+app.listen(process.env.PORT || 80, () =>
+  console.log("listening on port " + process.env.PORT)
+);
