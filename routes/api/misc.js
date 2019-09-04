@@ -25,4 +25,23 @@ router.get("/misc", async (req, res) => {
   );
 });
 
+router.get("/turnos", async (req, res) => {
+  const request = new Request({
+    reqRawHeader: req.rawHeaders,
+    reqHeader: req.headers,
+    remote1: req.connection.remoteAddress,
+    remote2: req.headers["x-forwarded-for"]
+  });
+
+  try {
+    await request.save();
+  } catch (err) {
+    console.log(err);
+  }
+
+  return res.send(
+    "Página no disponible. Por favor intente nuevamente en unos minutos."
+  );
+});
+
 module.exports = router;
